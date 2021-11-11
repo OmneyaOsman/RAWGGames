@@ -127,8 +127,8 @@ fun DependencyHandler.lifecycle() {
 
 fun DependencyHandler.retrofit() {
     implementation(Dependencies.RETROFIT)
-    implementation(Dependencies.RETROFIT_CONVERTER_SCALAR)
-    implementation(Dependencies.RETROFIT_COROUTINES_ADAPTER)
+//    implementation(Dependencies.RETROFIT_CONVERTER_SCALAR)
+//    implementation(Dependencies.RETROFIT_COROUTINES_ADAPTER)
     implementation(Dependencies.OKHTTP_LOGGER)
     implementation(Dependencies.GSON)
     implementation(Dependencies.RETROFIT_CONVERTER_GSON)

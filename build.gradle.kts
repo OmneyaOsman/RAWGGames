@@ -8,7 +8,7 @@ buildscript {
 
     dependencies {
         classpath(BuildDependencies.androidGradle)
-        classpath(kotlin("gradle-plugin", version = Versions.KOTLIN))
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
         classpath(BuildDependencies.navigationGradle)
         classpath(BuildDependencies.dependencyGraphGenerator)
         classpath(BuildDependencies.googleGradle)

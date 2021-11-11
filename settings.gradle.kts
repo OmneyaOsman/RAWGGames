@@ -3,3 +3,4 @@ include(
     ":app",
     ":core"
 )
+include(":feature-games-list")
