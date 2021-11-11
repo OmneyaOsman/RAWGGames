@@ -46,7 +46,6 @@ plugins {
     id("com.android.application")
     id("rawg-games_android_base-plugin")
     id("androidx.navigation.safeargs")
-    id("kotlin-android")
 }
 
 
@@ -55,17 +54,20 @@ dependencies {
     androidXNavigation()
     implementation(Dependencies.CONSTRAINTLAYOUT)
     implementation(Dependencies.KOTLIN_REFLECT)
+    implementation(Dependencies.ANDROID_MATERIAL_DESIGN)
+
+    implementation(project(":core"))
 
 }
 android {
     buildFeatures {
         viewBinding = true
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+//    compileOptions {
+//        sourceCompatibility = JavaVersion.VERSION_11
+//        targetCompatibility = JavaVersion.VERSION_11
+//    }
+//    kotlinOptions {
+//        jvmTarget = "11"
+//    }
 }
