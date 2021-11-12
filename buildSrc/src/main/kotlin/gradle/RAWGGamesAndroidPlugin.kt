@@ -48,7 +48,7 @@ private fun Project.configureAndroid() = this.extensions.getByType<BaseExtension
         versionName = AndroidSettings.APP_VERSION_NAME
         setProperty("archivesBaseName", "${parent?.name}-v${versionName}(${versionCode})")
 
-        minSdkPreview =AndroidSettings.MIN_ANDROID_SDK.toString()
+        minSdkPreview = AndroidSettings.MIN_ANDROID_SDK.toString()
         targetSdk = AndroidSettings.TARGET_ANDROID_SDK
 
         testInstrumentationRunner = AndroidSettings.testInstrumentationRunner
@@ -133,12 +133,12 @@ private fun Project.configureDependencies() = dependencies {
     implementation(Dependencies.ANDROID_CORE_KTX)
     implementation(Dependencies.COROUTINES_ANDROID)
     implementation(Dependencies.COROUTINES_CORE)
-//    implementation(Dependencies.ANDROIDX_FRAGMENT)
+    implementation(Dependencies.ANDROIDX_FRAGMENT)
     implementation(Dependencies.TIMBER)
 //    implementation(Dependencies.RETROFIT)
 //    implementation(Dependencies.CONSTRAINTLAYOUT)
 //    implementation(Dependencies.ANDROID_MATERIAL_DESIGN)
     implementation(Dependencies.KOIN_ANDROID)
-//    implementation(Dependencies.NAVIGATION_FRAGMENTX)
-//    implementation(Dependencies.NAVIGATION_UI)
+    implementation(Dependencies.NAVIGATION_FRAGMENTX)
+    implementation(Dependencies.NAVIGATION_UI)
 }

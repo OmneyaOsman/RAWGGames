@@ -53,6 +53,15 @@ object Dependencies {
     const val COROUTINES_CORE =
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES_ANDROID}"
 
+    const val PAGING_RUNTIME = "androidx.paging:paging-runtime-ktx:${Versions.PAGING}"
+    const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
+
+    //region Room Lib
+    const val ROOM_KTX = "androidx.room:room-ktx:${Versions.ROOM}"
+    const val ROOM_COMPILER: String = "androidx.room:room-compiler:${Versions.ROOM}"
+    const val ROOM_PAGING = "androidx.room:room-paging:${Versions.ROOM}"
+    const val ROOM_TESTING = "androidx.room:room-testing:${Versions.ROOM}"
+    //endregion
 }
 
 object BuildDependencies {
@@ -88,14 +97,15 @@ object TestDependencies {
             "androidx.test.ext:junit:${Versions.androidxJunit}"
         const val coreTesting = "androidx.arch.core:core-testing:${Versions.coreTesting}"
     }
+
     const val TEST_KOTLINX_COROUTINES =
         "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.COROUTINES_ANDROID}"
 
-    const val JUNIT ="junit:junit:${Versions.junit}"
-    const val MOCKITO_CORE ="org.mockito:mockito-core:${Versions.mockito}"
-    const val MOCKITO_INLINE="org.mockito:mockito-inline:${Versions.mockito}"
-    const val MOCKK="io.mockk:mockk:${Versions.mockk}"
-    const val TURBIN="app.cash.turbine:turbine:${Versions.turbin}"
+    const val JUNIT = "junit:junit:${Versions.junit}"
+    const val MOCKITO_CORE = "org.mockito:mockito-core:${Versions.mockito}"
+    const val MOCKITO_INLINE = "org.mockito:mockito-inline:${Versions.mockito}"
+    const val MOCKK = "io.mockk:mockk:${Versions.mockk}"
+    const val TURBIN = "app.cash.turbine:turbine:${Versions.turbin}"
 }
 
 fun DependencyHandler.coroutines() {
@@ -114,10 +124,11 @@ fun DependencyHandler.mockito() {
     testImplementation(TestDependencies.MOCKK)
 }
 
-fun DependencyHandler.androidXNavigation(){
+fun DependencyHandler.androidXNavigation() {
     implementation(Dependencies.NAVIGATION_FRAGMENTX)
     implementation(Dependencies.NAVIGATION_UI)
 }
+
 fun DependencyHandler.lifecycle() {
     implementation(Dependencies.ANDROID_LIFECYCLE_RUNTIME)
     implementation(Dependencies.ANDROID_LIFECYCLE_EX)
@@ -134,8 +145,12 @@ fun DependencyHandler.retrofit() {
     implementation(Dependencies.RETROFIT_CONVERTER_GSON)
 }
 
-fun DependencyHandler.koin() {
-    implementation(Dependencies.KOIN_ANDROID)
+
+fun DependencyHandler.room() {
+    implementation(Dependencies.ROOM_KTX)
+    implementation(Dependencies.ROOM_PAGING)
+    kapt(Dependencies.ROOM_COMPILER)
+    androidTestImplementation(Dependencies.ROOM_TESTING)
 }
 
 fun DependencyHandler.implementation(depName: Any) {
