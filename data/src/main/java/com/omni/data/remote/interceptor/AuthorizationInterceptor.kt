@@ -1,6 +1,6 @@
-package com.omni.core.interceptor
+package com.omni.data.remote.interceptor
 
-import com.omni.core.BuildConfig
+import com.omni.data.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Response
 

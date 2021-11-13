@@ -1,5 +1,6 @@
 plugins {
     id("com.android.library")
+    id("kotlin-kapt")
     id("rawg-games_android_base-plugin")
 }
 dependencies {

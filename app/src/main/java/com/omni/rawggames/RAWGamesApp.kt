@@ -1,7 +1,7 @@
 package com.omni.rawggames
 
 import android.app.Application
-import com.omni.core.di.networkModule
+import com.omni.data.di.networkModule
 import com.omni.feature_games_list.di.gamesListFeatureModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin

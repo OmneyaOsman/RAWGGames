@@ -1,5 +1,4 @@
 object Versions {
-
     const val RECYCLER_VIEW = "1.1.0"
     const val CONSTRAINT_LAYOUT = "2.1.1"
     const val KOTLIN = "1.5.31"
@@ -32,14 +31,12 @@ object Versions {
     const val PAGING = "3.0.1"
     const val GLIDE = "4.12.0"
     const val ROOM = "2.4.0-alpha05"
-
-
 }
 
 object AndroidSettings {
-    const val COMPILE_SDK = 30
+    const val COMPILE_SDK = 31
     const val MIN_ANDROID_SDK = 23
-    const val TARGET_ANDROID_SDK = 30
+    const val TARGET_ANDROID_SDK = 31
     const val APP_VERSION_NAME = "1.0"
     const val APP_VERSION_CODE = 1
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -51,7 +48,6 @@ object Androidx {
     const val LIFECYCLE_VERSION = "2.4.0-alpha01"
     const val CORE_KTX = "1.6.0"
     const val WORK_MANAGER = "2.3.0"
-    const val ROOM = "2.3.0-alpha02"
     const val ANDROIDX_FRAGMENT = "1.3.6"
 }
 

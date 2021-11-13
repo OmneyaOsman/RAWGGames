@@ -1,13 +1,13 @@
-package com.omni.core.di
+package com.omni.data.di
 
 import android.content.Context
 import android.net.ConnectivityManager
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.omni.core.BuildConfig
-import com.omni.core.di.NetworkModuleConstants.RETROFIT_TIMEOUT
-import com.omni.core.interceptor.AuthorizationInterceptor
+import com.omni.data.BuildConfig
+import com.omni.data.di.NetworkModuleConstants.RETROFIT_TIMEOUT
+import com.omni.data.remote.interceptor.AuthorizationInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext

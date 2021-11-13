@@ -57,6 +57,7 @@ dependencies {
     implementation(Dependencies.ANDROID_MATERIAL_DESIGN)
 
     implementation(project(":core"))
+    implementation(project(":data"))
     implementation(project(":feature-games-list"))
 
 }

@@ -4,3 +4,4 @@ include(
     ":core"
 )
 include(":feature-games-list")
+include(":data")
