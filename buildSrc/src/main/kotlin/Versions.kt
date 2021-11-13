@@ -36,7 +36,7 @@ object Versions {
 object AndroidSettings {
     const val COMPILE_SDK = 31
     const val MIN_ANDROID_SDK = 23
-    const val TARGET_ANDROID_SDK = 31
+    const val TARGET_ANDROID_SDK = 30
     const val APP_VERSION_NAME = "1.0"
     const val APP_VERSION_CODE = 1
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
