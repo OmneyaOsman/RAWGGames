@@ -6,6 +6,7 @@ import androidx.datastore.preferences.SharedPreferencesMigration
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import com.omni.data.local.datastore.GENERES_PREFERENCES
+import com.omni.data.local.datastore.GenerePreferencesSourceImp
 import com.omni.data.local.db.RawgGamesDatabase
 import com.omni.data.mapper.GameModelToGameEntityMapper
 import com.omni.data.mapper.generes.GenereModelToGenereEntityMapper
@@ -13,6 +14,7 @@ import com.omni.data.remote.api.GamesAPI
 import com.omni.data.remote.api.GeneresAPI
 import com.omni.data.repository.GeneresRepositoryImp
 import com.omni.data.repository.RAWgGamesRepositoryImp
+import com.omni.domain.repository.GenerePreferencesSource
 import com.omni.domain.repository.GeneresRepository
 import com.omni.domain.repository.RAWGGamesRepository
 import org.koin.dsl.module
@@ -26,6 +28,7 @@ val generesRepositoryModule = module {
     single { provideGeneresDataSTore(get()) }
 
     single { provideRAWgGamesRepositoryImp(get(), get()) }
+    single { provideGenerePreferencesSourceImp( get()) }
 }
 
 fun provideGenereModelToGenereEntityMapper() = GenereModelToGenereEntityMapper()
@@ -39,3 +42,6 @@ fun provideGeneresDataSTore(context: Context): DataStore<Preferences> =
     PreferenceDataStoreFactory.create(
         produceFile = { File(context.filesDir, GENERES_PREFERENCES) },
     )
+
+fun provideGenerePreferencesSourceImp(dataStore: DataStore<Preferences>): GenerePreferencesSource =
+    GenerePreferencesSourceImp(dataStore)

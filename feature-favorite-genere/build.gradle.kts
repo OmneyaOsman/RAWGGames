@@ -7,6 +7,8 @@ dependencies {
     appCompat()
     implementation(project(":core"))
     implementation(project(":domain"))
+    implementation(project(":navigation"))
+
     implementation(Dependencies.CONSTRAINTLAYOUT)
     implementation(Dependencies.RECYCLERVIEW)
     implementation(Dependencies.GLIDE)

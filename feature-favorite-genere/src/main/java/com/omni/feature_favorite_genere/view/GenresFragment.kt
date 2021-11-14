@@ -7,18 +7,22 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.omni.feature_favorite_genere.R
 import com.omni.feature_favorite_genere.databinding.FragmentGeneresBinding
 import com.omni.feature_favorite_genere.viewmodel.GeneresViewModel
 import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 
 class GenresFragment : Fragment() {
     private lateinit var binding: FragmentGeneresBinding
-    private val adapter = GeneresListAdapter { obj ->
-        Toast.makeText(context, obj.name, Toast.LENGTH_SHORT).show()
-    }
     private val viewModel: GeneresViewModel by viewModel()
+
+    private val adapter = GeneresListAdapter { obj ->
+        viewModel.setFavoriteGenere(obj.id.toString())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +42,16 @@ class GenresFragment : Fragment() {
         lifecycleScope.launchWhenStarted {
             viewModel.result.collect {
                 adapter.submitList(it)
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.navigateToGames.collect {
+                try {
+                    findNavController().navigate(R.id.action_generesFragment_to_gamesListFragment)
+                } catch (e: IllegalArgumentException) {
+                    Timber.e(e)
+                }
             }
         }
     }
