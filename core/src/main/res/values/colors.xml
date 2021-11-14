@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green_018064">#018064</color>
+    <color name="green_014636">#014636</color>
+    <color name="green_018064_alpha_15">#26018064</color>
+    <color name="green_018064_alpha_50">#80018064</color>
+    <color name="black_222222">#222222</color>
+    <color name="grey_f8f8f8">#F8F8F8</color>
+    <color name="black_222222_alpha60">#99222222</color>
+    <color name="grey_b1b1b1">#b1b1b1</color>
+    <color name="grey_ababab">#ababab</color>
+    <color name="grey_f4f4f4">#f4f4f4</color>
+    <color name="white_fafafa">#fafafa</color>
+</resources>
