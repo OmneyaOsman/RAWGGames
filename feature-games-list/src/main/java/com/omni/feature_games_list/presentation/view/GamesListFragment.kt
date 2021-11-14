@@ -47,8 +47,6 @@ class GamesListFragment : Fragment() {
         initializeSwipeToRefresh()
         lifecycleScope.launchWhenStarted {
             viewModel.getGames().collect {
-                Timber.d("QuestionsResponse", "collect")
-
                 if (binding.srLayout.isRefreshing)
                     binding.srLayout.isRefreshing = false
                 adapter.submitData(it)
@@ -92,7 +90,7 @@ class GamesListFragment : Fragment() {
                         if (it.error is UnknownHostException)
                             Toast.makeText(
                                 context,
-                                "general_error_network",
+                                "Please check your Network ",
                                 Toast.LENGTH_SHORT
                             ).show()
                         else
