@@ -1,8 +1,9 @@
 package com.omni.rawggames
 
 import android.app.Application
-import com.omni.data.di.dataModule
+import com.omni.data.di.RAWgGamesRepositoryModule
 import com.omni.data.di.databaseModule
+import com.omni.data.di.generesRepositoryModule
 import com.omni.data.di.networkModule
 import com.omni.domain.di.domainModule
 import com.omni.feature_games_list.di.gamesListFeatureModule
@@ -36,7 +37,8 @@ class RAWGamesApp : Application() {
                 listOf(
                     networkModule,
                     databaseModule,
-                    dataModule,
+                    RAWgGamesRepositoryModule,
+                    generesRepositoryModule,
                     domainModule,
                     gamesListFeatureModule,
                 )

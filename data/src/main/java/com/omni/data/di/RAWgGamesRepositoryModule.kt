@@ -9,7 +9,7 @@ import com.omni.data.repository.RAWgGamesRepositoryImp
 import com.omni.domain.repository.RAWGGamesRepository
 import org.koin.dsl.module
 
-val dataModule = module {
+val RAWgGamesRepositoryModule = module {
     single { provideGameModelToGameEntityMapper() }
     single { provideRAWgGamesRepositoryImp(get(), get(), get()) }
 }
