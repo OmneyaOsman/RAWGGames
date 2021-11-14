@@ -25,6 +25,7 @@ dependencies {
     retrofit()
     implementation(Dependencies.PAGING_RUNTIME)
     room()
+    implementation(Dependencies.DATA_STORE)
 
     implementation(TestDependencies.runner)
     implementation(TestDependencies.junit)
