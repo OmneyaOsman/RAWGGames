@@ -4,12 +4,11 @@ plugins {
     id("rawg-games_android_base-plugin")
 }
 dependencies {
+    implementation(project(":domain"))
+    implementation(project(":core"))
     appCompat()
     implementation(Dependencies.CONSTRAINTLAYOUT)
+    implementation(Dependencies.SWIPE_REFRESH_LAYOUT)
     implementation(Dependencies.RECYCLERVIEW)
-    implementation(Dependencies.GSON)
-    implementation(Dependencies.RETROFIT)
     implementation(Dependencies.PAGING_RUNTIME)
-    room()
-
 }

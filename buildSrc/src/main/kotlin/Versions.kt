@@ -28,7 +28,7 @@ object Versions {
     const val mockito = "3.3.3"
     const val mockk = "1.9.3"
     const val turbin = "0.5.2"
-    const val PAGING = "3.0.1"
+    const val PAGING = "3.1.0-beta01"
     const val GLIDE = "4.12.0"
     const val ROOM = "2.4.0-alpha05"
 }

@@ -1,11 +1,17 @@
 package com.omni.feature_games_list.di
 
-import com.omni.feature_games_list.data.remote.GamesAPI
+import com.omni.domain.usecases.GetGamesUseCase
+import com.omni.feature_games_list.presentation.viewmodel.GamesListViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import retrofit2.Retrofit
 
 val gamesListFeatureModule = module {
-    factory { provideGamesAPI(get()) }
+    viewModel {
+        provideGamesListViewModel(get())
+    }
 }
 
-fun provideGamesAPI(retrofit: Retrofit): GamesAPI = retrofit.create(GamesAPI::class.java)
+fun provideGamesListViewModel(useCase: GetGamesUseCase) = GamesListViewModel(useCase)
+
+
+
