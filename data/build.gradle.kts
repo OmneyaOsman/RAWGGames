@@ -27,6 +27,11 @@ dependencies {
     room()
     implementation(Dependencies.DATA_STORE)
 
-    implementation(TestDependencies.runner)
     implementation(TestDependencies.junit)
+    androidTestImplementation(TestDependencies.runner)
+    androidTestImplementation(TestDependencies.rules)
+    androidTestImplementation(TestDependencies.core)
+    androidTestImplementation (TestDependencies.TEST_KOTLINX_COROUTINES){
+        exclude(group = "org.jetbrains.kotlinx", module = "kotlinx-coroutines-debug")
+    }
 }
