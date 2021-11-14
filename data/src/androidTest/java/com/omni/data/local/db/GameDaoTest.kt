@@ -13,7 +13,6 @@ import org.hamcrest.MatcherAssert
 import org.hamcrest.core.IsEqual
 import org.junit.After
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
@@ -43,12 +42,11 @@ class GameDaoTest {
     fun whenInsertGamesThenRetrieveListOfGames() = runBlocking {
         //Arrange
         val list = listOf(
-            GameModel(1, "", "The Witcher 3: Wild Hunt", 4.67, 5),
-            GameModel(2, "", "Grand Theft Auto V", 4.48, 5)
+            GameModel(1, "", "The Witcher 3: Wild Hunt", 4.67),
+            GameModel(2, "", "Grand Theft Auto V", 4.48)
         )
         list.takeIf { it.isNotEmpty() }
-            ?.toTypedArray()
-            ?.let { dao.insertAll(*it) }
+            ?.let { dao.insertAll(it) }
 
 
         //Act
@@ -63,12 +61,11 @@ class GameDaoTest {
     fun whenDeleteGamesThenRetrieveListOfGamesIsEmpty() = runBlocking {
         //Arrange
         val list = listOf(
-            GameModel(1, "", "The Witcher 3: Wild Hunt", 4.67, 5),
-            GameModel(2, "", "Grand Theft Auto V", 4.48, 5)
+            GameModel(1, "", "The Witcher 3: Wild Hunt", 4.67),
+            GameModel(2, "", "Grand Theft Auto V", 4.48)
         )
         list.takeIf { it.isNotEmpty() }
-            ?.toTypedArray()
-            ?.let { dao.insertAll(*it) }
+            ?.let { dao.insertAll(it) }
 
 
         //Act

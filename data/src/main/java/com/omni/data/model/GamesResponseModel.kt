@@ -2,7 +2,6 @@ package com.omni.data.model
 
 
 import com.google.gson.annotations.SerializedName
-import com.omni.data.model.GameModel
 
 data class GamesResponseModel(
     @SerializedName("next")

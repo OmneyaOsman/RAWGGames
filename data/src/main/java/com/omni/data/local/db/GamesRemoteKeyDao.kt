@@ -10,12 +10,9 @@ import com.omni.data.model.GameRemoteKeysModel
 interface GamesRemoteKeyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(keys: GameRemoteKeysModel)
-//
-//    @Query("SELECT * FROM remote_keys WHERE subreddit = :subreddit")
-//    suspend fun remoteKeyByPost(subreddit: String): SubredditRemoteKey
-//
-//    @Query("DELETE FROM remote_keys WHERE subreddit = :subreddit")
-//    suspend fun deleteBySubreddit(subreddit: String)
+
+    @Query("SELECT * FROM remote_keys")
+    suspend fun getGameRemoteKey(): GameRemoteKeysModel
 
     @Query("DELETE FROM remote_keys")
     suspend fun delete()

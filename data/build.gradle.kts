@@ -20,9 +20,12 @@ android {
     }
 }
 dependencies {
+    implementation(project(":core"))
+    implementation(project(":domain"))
     retrofit()
     implementation(Dependencies.PAGING_RUNTIME)
     room()
+
     implementation(TestDependencies.runner)
     implementation(TestDependencies.junit)
 }
