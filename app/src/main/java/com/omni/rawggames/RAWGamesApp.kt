@@ -1,7 +1,10 @@
 package com.omni.rawggames
 
 import android.app.Application
+import com.omni.data.di.dataModule
+import com.omni.data.di.databaseModule
 import com.omni.data.di.networkModule
+import com.omni.domain.di.domainModule
 import com.omni.feature_games_list.di.gamesListFeatureModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -32,6 +35,9 @@ class RAWGamesApp : Application() {
             modules(
                 listOf(
                     networkModule,
+                    databaseModule,
+                    dataModule,
+                    domainModule,
                     gamesListFeatureModule,
                 )
             )

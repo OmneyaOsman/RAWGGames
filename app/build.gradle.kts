@@ -58,6 +58,8 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":navigation"))
     implementation(project(":feature-games-list"))
 
 }
@@ -65,11 +67,4 @@ android {
     buildFeatures {
         viewBinding = true
     }
-//    compileOptions {
-//        sourceCompatibility = JavaVersion.VERSION_11
-//        targetCompatibility = JavaVersion.VERSION_11
-//    }
-//    kotlinOptions {
-//        jvmTarget = "11"
-//    }
 }
