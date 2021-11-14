@@ -6,7 +6,8 @@ import com.omni.feature_games_list.databinding.ListItemGameBinding
 
 class GamesViewHolder(private val binding: ListItemGameBinding) :
     RecyclerView.ViewHolder(binding.root) {
-        fun bind(gameEntity: GameEntity){
-
-        }
+    fun bind(gameEntity: GameEntity) {
+        binding.gameEntity = gameEntity
+        binding.executePendingBindings()
+    }
 }

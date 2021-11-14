@@ -10,5 +10,6 @@ dependencies {
     implementation(Dependencies.CONSTRAINTLAYOUT)
     implementation(Dependencies.SWIPE_REFRESH_LAYOUT)
     implementation(Dependencies.RECYCLERVIEW)
+    implementation(Dependencies.ANDROID_MATERIAL_DESIGN)
     implementation(Dependencies.PAGING_RUNTIME)
 }

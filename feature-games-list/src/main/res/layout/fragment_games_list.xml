@@ -11,7 +11,7 @@
         android:id="@+id/sr_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#f4f4f4">
+        android:background="@color/green_014636">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -21,6 +21,7 @@
                 android:id="@+id/games_recycler_view"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

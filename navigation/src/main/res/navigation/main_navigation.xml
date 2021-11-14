@@ -7,6 +7,6 @@
     <fragment
         android:id="@+id/gamesListFragment"
         android:name="com.omni.feature_games_list.presentation.view.GamesListFragment"
-        android:label="GamesListFragment" />
+        android:label="Games" />
 
 </navigation>
