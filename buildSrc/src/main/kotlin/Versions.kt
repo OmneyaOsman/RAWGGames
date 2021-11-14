@@ -49,6 +49,8 @@ object Androidx {
     const val CORE_KTX = "1.6.0"
     const val WORK_MANAGER = "2.3.0"
     const val ANDROIDX_FRAGMENT = "1.3.6"
+    const val DATA_STORE = "1.0.0"
+
 }
 
 

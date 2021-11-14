@@ -8,5 +8,6 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":domain"))
     implementation(Dependencies.CONSTRAINTLAYOUT)
+    implementation(Dependencies.RECYCLERVIEW)
     implementation(Dependencies.GLIDE)
 }

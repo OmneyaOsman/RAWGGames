@@ -6,6 +6,7 @@ import com.omni.data.di.databaseModule
 import com.omni.data.di.generesRepositoryModule
 import com.omni.data.di.networkModule
 import com.omni.domain.di.domainModule
+import com.omni.feature_favorite_genere.di.favoriteGenereFeatureModule
 import com.omni.feature_games_list.di.gamesListFeatureModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -41,6 +42,7 @@ class RAWGamesApp : Application() {
                     generesRepositoryModule,
                     domainModule,
                     gamesListFeatureModule,
+                    favoriteGenereFeatureModule
                 )
             )
         }

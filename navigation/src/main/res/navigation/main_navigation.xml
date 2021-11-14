@@ -2,11 +2,16 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/gamesListFragment">
+    app:startDestination="@id/generesFragment">
 
     <fragment
         android:id="@+id/gamesListFragment"
         android:name="com.omni.feature_games_list.presentation.view.GamesListFragment"
         android:label="Games" />
+
+    <fragment
+        android:id="@+id/generesFragment"
+        android:name="com.omni.feature_favorite_genere.view.GenresFragment"
+        android:label="Generes" />
 
 </navigation>
