@@ -4,5 +4,9 @@ plugins {
     id("kotlin-kapt")
 }
 dependencies {
+    appCompat()
+    implementation(project(":core"))
+    implementation(project(":domain"))
+    implementation(Dependencies.CONSTRAINTLAYOUT)
     implementation(Dependencies.GLIDE)
 }
