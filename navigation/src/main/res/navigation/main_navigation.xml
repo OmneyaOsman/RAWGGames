@@ -12,10 +12,13 @@
     <fragment
         android:id="@+id/generesFragment"
         android:name="com.omni.feature_favorite_genere.view.GenresFragment"
-        android:label="Generes" >
+        android:label="Generes">
         <action
             android:id="@+id/action_generesFragment_to_gamesListFragment"
-            app:destination="@id/gamesListFragment" />
+            app:destination="@id/gamesListFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/generesFragment"
+            />
     </fragment>
 
 </navigation>
