@@ -5,3 +5,5 @@ include(
 )
 include(":feature-games-list")
 include(":data")
+include(":domain")
+include(":navigation")
