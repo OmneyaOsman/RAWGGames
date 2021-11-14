@@ -7,6 +7,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.omni.data.BuildConfig
 import com.omni.data.di.NetworkModuleConstants.RETROFIT_TIMEOUT
+import com.omni.data.remote.api.GamesAPI
 import com.omni.data.remote.interceptor.AuthorizationInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -25,6 +26,8 @@ val networkModule = module {
     single { provideConnectivityManager(androidContext()) }
     single { provideGsonConverterFactory(get()) }
     single { provideRetrofitBuilder(get(), get()) }
+    factory { provideGamesAPI(get()) }
+
 }
 
 fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor =
@@ -64,6 +67,7 @@ fun provideRetrofitBuilder(
         .addConverterFactory(gsonConverterFactory)
         .build()
 
+fun provideGamesAPI(retrofit: Retrofit): GamesAPI = retrofit.create(GamesAPI::class.java)
 
 fun provideGsonConverterFactory(
     gson: Gson

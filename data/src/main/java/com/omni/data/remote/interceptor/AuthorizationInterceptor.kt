@@ -9,7 +9,7 @@ class AuthorizationInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response =
         chain.request().let {
             it.url.newBuilder()
-                .addQueryParameter("app_key", BuildConfig.API_KEY).build().let { url ->
+                .addQueryParameter("key", BuildConfig.API_KEY).build().let { url ->
                     it.newBuilder().url(url).build()
                 }
         }.run {
