@@ -3,6 +3,7 @@ package com.omni.feature_favorite_genere.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.omni.domain.entities.generes.GenereEntity
+import com.omni.domain.repository.LocalDatabaseRepository
 import com.omni.domain.usecases.GetGeneresUseCase
 import com.omni.domain.usecases.SetFavoriteGenereUseCase
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -13,7 +14,8 @@ import kotlinx.coroutines.launch
 
 class GeneresViewModel(
     private val useCase: GetGeneresUseCase,
-    private val setFavoriteGenereUseCase: SetFavoriteGenereUseCase
+    private val setFavoriteGenereUseCase: SetFavoriteGenereUseCase,
+    private val localDatabaseRepository: LocalDatabaseRepository
 ) : ViewModel() {
     private val _result: MutableStateFlow<List<GenereEntity>?> = MutableStateFlow(null)
     val result = _result.asStateFlow()
@@ -30,6 +32,7 @@ class GeneresViewModel(
     fun setFavoriteGenere(genere: String) {
         viewModelScope.launch {
             setFavoriteGenereUseCase(genere).also {
+                localDatabaseRepository.clearALl()
                 _navigateToGames.emit(Unit)
             }
         }
