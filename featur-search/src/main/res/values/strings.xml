@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_no_search_result">No Result Found</string>
+    <string name="tv_no_result_hint">We couldn\'t find any items matching your search</string>
+    <string name="search_icon">search icon</string>
+    <string name="game_icon">game icon</string>
+</resources>
