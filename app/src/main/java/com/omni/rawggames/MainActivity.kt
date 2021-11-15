@@ -28,9 +28,13 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            if (destination.id == R.id.generesFragment)
-                binding.appbarLayout.visibility = View.GONE else View.VISIBLE
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            binding.appbarLayout.visibility = when (destination.id) {
+                R.id.generesFragment, R.id.splashFragment -> View.GONE
+                else -> View.VISIBLE
+            }
+            if (destination.id == R.id.gamesListFragment)
+                binding.toolbar.navigationIcon = null
         }
 
     }

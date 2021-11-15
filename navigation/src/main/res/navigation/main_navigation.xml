@@ -2,12 +2,29 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/generesFragment">
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.omni.feature_splash.view.SplashFragment"
+        android:label="Splash">
+        <action
+            android:id="@+id/action_splashFragment_to_generesFragment"
+            app:destination="@id/generesFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_gamesListFragment"
+            app:destination="@id/gamesListFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/gamesListFragment"
         android:name="com.omni.feature_games_list.presentation.view.GamesListFragment"
         android:label="Games" />
+
 
     <fragment
         android:id="@+id/generesFragment"
@@ -16,9 +33,8 @@
         <action
             android:id="@+id/action_generesFragment_to_gamesListFragment"
             app:destination="@id/gamesListFragment"
-            app:popUpToInclusive="true"
             app:popUpTo="@id/generesFragment"
-            />
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>
