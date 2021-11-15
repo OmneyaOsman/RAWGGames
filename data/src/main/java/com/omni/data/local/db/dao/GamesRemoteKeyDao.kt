@@ -1,4 +1,4 @@
-package com.omni.data.local.db
+package com.omni.data.local.db.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

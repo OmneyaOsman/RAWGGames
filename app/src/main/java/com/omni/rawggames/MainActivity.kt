@@ -32,12 +32,18 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.appbarLayout.visibility = when (destination.id) {
-                R.id.gamesListFragment -> View.VISIBLE
-                else -> View.GONE
+            when (destination.id) {
+                R.id.splashFragment -> {
+                    binding.appbarLayout.visibility = View.GONE
+                }
+                R.id.gamesListFragment, R.id.generesFragment -> {
+                    binding.toolbar.navigationIcon = null
+                    binding.appbarLayout.visibility = View.VISIBLE
+                }
+                else -> {
+                    binding.appbarLayout.visibility = View.VISIBLE
+                }
             }
-            if (destination.id == R.id.gamesListFragment)
-                binding.toolbar.navigationIcon = null
         }
 
     }

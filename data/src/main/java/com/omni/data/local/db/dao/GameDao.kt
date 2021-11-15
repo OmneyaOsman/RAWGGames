@@ -1,4 +1,4 @@
-package com.omni.data.local.db
+package com.omni.data.local.db.dao
 
 import androidx.paging.PagingSource
 import androidx.room.Dao
@@ -20,8 +20,5 @@ interface GameDao {
 
     @Query("DELETE FROM game")
     suspend fun deleteGames()
-
-//    @Query("DELETE FROM posts WHERE subreddit = :subreddit")
-//    suspend fun deleteBySubreddit(subreddit: String)
 
 }
