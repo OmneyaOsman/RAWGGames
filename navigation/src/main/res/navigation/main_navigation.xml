@@ -23,7 +23,13 @@
     <fragment
         android:id="@+id/gamesListFragment"
         android:name="com.omni.feature_games_list.presentation.view.GamesListFragment"
-        android:label="Games" />
+        android:label="Games">
+        <action
+            android:id="@+id/action_gamesListFragment_to_generesFragment"
+            app:destination="@id/generesFragment"
+            app:popUpTo="@id/gamesListFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
 
 
     <fragment
