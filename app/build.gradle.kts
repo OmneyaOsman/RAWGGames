@@ -61,6 +61,8 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":navigation"))
     implementation(project(":feature-games-list"))
+    implementation(project(":feature-favorite-genere"))
+    implementation(project(":feature-splash"))
 
 }
 android {

@@ -2,6 +2,7 @@ package com.omni.rawggames
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -26,6 +27,15 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            binding.appbarLayout.visibility = when (destination.id) {
+                R.id.generesFragment, R.id.splashFragment -> View.GONE
+                else -> View.VISIBLE
+            }
+            if (destination.id == R.id.gamesListFragment)
+                binding.toolbar.navigationIcon = null
+        }
 
     }
 

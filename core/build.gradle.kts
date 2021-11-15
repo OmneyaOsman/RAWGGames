@@ -4,5 +4,6 @@ plugins {
     id("kotlin-kapt")
 }
 dependencies {
+    implementation(Dependencies.RETROFIT)
     implementation(Dependencies.GLIDE)
 }
