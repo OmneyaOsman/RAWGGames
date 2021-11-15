@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RAWG Games</string>
     <string name="edit_genere">Edit Genere</string>
+    <string name="search">Search</string>
 </resources>

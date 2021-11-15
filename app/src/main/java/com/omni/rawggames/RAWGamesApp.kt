@@ -6,6 +6,7 @@ import com.omni.data.di.databaseModule
 import com.omni.data.di.generesRepositoryModule
 import com.omni.data.di.networkModule
 import com.omni.domain.di.domainModule
+import com.omni.featur_search.di.searchFeatureModule
 import com.omni.feature_favorite_genere.di.favoriteGenereFeatureModule
 import com.omni.feature_games_list.di.gamesListFeatureModule
 import com.omni.feature_splash.di.splashFeatureModule
@@ -45,6 +46,7 @@ class RAWGamesApp : Application() {
                     gamesListFeatureModule,
                     favoriteGenereFeatureModule,
                     splashFeatureModule,
+                    searchFeatureModule,
                 )
             )
         }
