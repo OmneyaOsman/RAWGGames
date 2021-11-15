@@ -18,7 +18,7 @@ import java.io.IOException
 class PagedKeyRemoteMediator(
     private val db: RawgGamesDatabase,
     private val gamesAPI: GamesAPI,
-    private val gener: String = "4" //todo get gener from datastore
+    private val genere: String
 ) : RemoteMediator<Int, GameModel>() {
 
     private val gamesDao = db.gamesDao()
@@ -59,7 +59,7 @@ class PagedKeyRemoteMediator(
             }
 
             val data: GamesResponseModel = gamesAPI.getGamesList(
-                geners = gener,
+                geners = genere,
                 nextPage = loadKey,
                 limit = when (loadType) {
                     LoadType.REFRESH -> state.config.initialLoadSize
@@ -83,7 +83,7 @@ class PagedKeyRemoteMediator(
 
                 }
                 Timber.d("nextPage $nextPage")
-                remoteKeyDao.insert(GameRemoteKeysModel(gener, nextPage))
+                remoteKeyDao.insert(GameRemoteKeysModel(genere, nextPage))
                 gamesDao.insertAll(items)
             }
 
