@@ -6,8 +6,10 @@ import com.omni.core.exception.UnhandledHttpCodeException
 import com.google.gson.Gson
 import com.omni.core.base.Mapper
 import com.omni.core.model.ServerErrorResponseModel
+import org.json.JSONArray
 import retrofit2.HttpException
 import retrofit2.Response
+import timber.log.Timber
 import java.io.IOException
 import java.util.concurrent.CancellationException
 
@@ -32,6 +34,58 @@ class ResponseWrapperHandler {
                                     responseModel!!
                                 )
                             )
+                        }
+                    }
+                    HTTP_CODE_NOT_MODIFIED, HTTP_CODE_CONFLICT, HTTP_CODE_UnPROCESSABLE_ENTRY, HTTP_CODE_NOT_FOUND, HTTP_CODE_INSUFFICIENT_QUALITY -> {
+                        return if (response.errorBody() != null) {
+                            val json = response.errorBody()!!.string()
+                            val errorModel =
+                                gson.fromJson(json, ServerErrorResponseModel::class.java)
+                            ResponseWrapper.ServerError(errorModel)
+                        } else
+                            ResponseWrapper.ServerDataNullError
+                    }
+                    else -> {
+                        throw UnhandledHttpCodeException(response.code())
+                    }
+                }
+            } catch (e: IOException) {
+                ResponseWrapper.NetworkError
+            } catch (e: ServerDataNullException) {
+                ResponseWrapper.ServerDataNullError
+            } catch (e: UnhandledHttpCodeException) {
+                ResponseWrapper.UnhandledHTTPCode(e.httpStatusCode)
+            } catch (e: CancellationException) {
+                ResponseWrapper.CancelCoroutine
+            } catch (e: HttpException) {
+                ResponseWrapper.Error
+            } catch (e: Exception) {
+                ResponseWrapper.Error
+            }
+        }
+
+        inline fun <reified MODEL, ENTITY> handleListResponse(
+            serviceMethod: () -> Response<String>,
+            successResponseMapper: Mapper<MODEL, ENTITY>,
+            gson: Gson
+        ): ResponseWrapper {
+            return try {
+                val response = serviceMethod()
+                Timber.d("response ${response.code()}")
+                when (response.code()) {
+                    HTTP_CODE_SUCCESS -> {
+                        return if (response.body() == null)
+                            ResponseWrapper.ServerDataNullError
+                        else {
+                            val list: MutableList<ENTITY> = mutableListOf()
+                            val jsonArray = JSONArray(response.body())
+                            for (i in 0 until jsonArray.length()) {
+                                val model =
+                                    gson.fromJson(jsonArray[i].toString(), MODEL::class.java)
+                                list.add(successResponseMapper.mapToDomainModel(model!!))
+                            }
+
+                            ResponseWrapper.SuccessList(list)
                         }
                     }
                     HTTP_CODE_NOT_MODIFIED, HTTP_CODE_CONFLICT, HTTP_CODE_UnPROCESSABLE_ENTRY, HTTP_CODE_NOT_FOUND, HTTP_CODE_INSUFFICIENT_QUALITY -> {

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.omni.core.extensions.commonObserveViewModelFunctions
 import com.omni.feature_favorite_genere.R
 import com.omni.feature_favorite_genere.databinding.FragmentGeneresBinding
 import com.omni.feature_favorite_genere.viewmodel.GeneresViewModel
@@ -32,6 +33,8 @@ class GenresFragment : Fragment() {
         FragmentGeneresBinding.inflate(layoutInflater, container, false).let {
             binding = it
         }.also {
+            commonObserveViewModelFunctions(viewModel, binding)
+
             binding.generesRecyclerView.adapter = adapter
             observeGeneresViewModel()
             return binding.root

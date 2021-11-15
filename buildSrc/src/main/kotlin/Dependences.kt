@@ -25,8 +25,6 @@ object Dependencies {
     const val ANDROID_LIFECYCLE_VIEWMODEL =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Androidx.LIFECYCLE}"
     const val ANDROID_LIFECYCLE_EX = "androidx.lifecycle:lifecycle-extensions:${Androidx.LIFECYCLE}"
-    const val ANDROID_LIFECYCLE_LIVEDATA =
-        "androidx.lifecycle:lifecycle-livedata-ktx:${Androidx.LIFECYCLE}"
 
     const val ANDROIDX_FRAGMENT =
         "androidx.fragment:fragment-ktx:${Androidx.ANDROIDX_FRAGMENT}"
@@ -44,8 +42,6 @@ object Dependencies {
         "com.squareup.retrofit2:converter-scalars:${Versions.RETROFIT}"
     const val RETROFIT_CONVERTER_GSON = "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT}"
     const val GSON = "com.google.code.gson:gson:${Versions.GSON}"
-    const val RETROFIT_COROUTINES_ADAPTER =
-        "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.RETROFIT_COROUTINES_ADAPTER}"
     const val OKHTTP_LOGGER = "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP3}"
 
     const val COROUTINES_ANDROID =
@@ -138,8 +134,7 @@ fun DependencyHandler.lifecycle() {
 
 fun DependencyHandler.retrofit() {
     implementation(Dependencies.RETROFIT)
-//    implementation(Dependencies.RETROFIT_CONVERTER_SCALAR)
-//    implementation(Dependencies.RETROFIT_COROUTINES_ADAPTER)
+    implementation(Dependencies.RETROFIT_CONVERTER_SCALAR)
     implementation(Dependencies.OKHTTP_LOGGER)
     implementation(Dependencies.GSON)
     implementation(Dependencies.RETROFIT_CONVERTER_GSON)

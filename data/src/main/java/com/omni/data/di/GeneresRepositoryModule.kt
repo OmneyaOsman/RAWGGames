@@ -5,6 +5,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.SharedPreferencesMigration
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
+import com.google.gson.Gson
 import com.omni.data.local.datastore.GENERES_PREFERENCES
 import com.omni.data.local.datastore.GenerePreferencesSourceImp
 import com.omni.data.local.db.RawgGamesDatabase
@@ -27,15 +28,15 @@ val generesRepositoryModule = module {
     single { provideGenereModelToGenereEntityMapper() }
     single { provideGeneresDataSTore(get()) }
 
-    single { provideRAWgGamesRepositoryImp(get(), get()) }
-    single { provideGenerePreferencesSourceImp( get()) }
+    single { provideGeneresRepositoryImp(get(), get(), get()) }
+    single { provideGenerePreferencesSourceImp(get()) }
 }
 
 fun provideGenereModelToGenereEntityMapper() = GenereModelToGenereEntityMapper()
 fun provideGeneresAPI(retrofit: Retrofit): GeneresAPI = retrofit.create(GeneresAPI::class.java)
-fun provideRAWgGamesRepositoryImp(
-    api: GeneresAPI, mapper: GenereModelToGenereEntityMapper
-): GeneresRepository = GeneresRepositoryImp(api, mapper)
+fun provideGeneresRepositoryImp(
+    api: GeneresAPI, mapper: GenereModelToGenereEntityMapper, gson: Gson
+): GeneresRepository = GeneresRepositoryImp(api, mapper, gson)
 
 
 fun provideGeneresDataSTore(context: Context): DataStore<Preferences> =

@@ -2,6 +2,9 @@ package com.omni.feature_favorite_genere.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.omni.core.base.BaseViewModel
+import com.omni.core.extensions.handleCommonResponses
+import com.omni.core.wrapper.ResponseWrapper
 import com.omni.domain.entities.generes.GenereEntity
 import com.omni.domain.repository.LocalDatabaseRepository
 import com.omni.domain.usecases.GetGeneresUseCase
@@ -16,7 +19,7 @@ class GeneresViewModel(
     private val useCase: GetGeneresUseCase,
     private val setFavoriteGenereUseCase: SetFavoriteGenereUseCase,
     private val localDatabaseRepository: LocalDatabaseRepository
-) : ViewModel() {
+) : BaseViewModel() {
     private val _result: MutableStateFlow<List<GenereEntity>?> = MutableStateFlow(null)
     val result = _result.asStateFlow()
 
@@ -25,7 +28,21 @@ class GeneresViewModel(
 
     init {
         viewModelScope.launch {
-            _result.value = useCase()
+            dataLoading.value = true
+
+            val responseWrapper = useCase()
+            dataLoading.value = false
+
+            when (responseWrapper) {
+                is ResponseWrapper.SuccessList<*> -> {
+                    val response: List<GenereEntity> =
+                        responseWrapper.dataList as List<GenereEntity>
+                    _result.value = response
+                }
+                else -> {
+                    responseWrapper.handleCommonResponses(this@GeneresViewModel)
+                }
+            }
         }
     }
 

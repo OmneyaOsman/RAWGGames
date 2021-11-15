@@ -5,6 +5,7 @@ import android.net.ConnectivityManager
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import com.omni.data.BuildConfig
 import com.omni.data.di.NetworkModuleConstants.RETROFIT_TIMEOUT
 import com.omni.data.remote.api.GamesAPI
@@ -64,6 +65,7 @@ fun provideRetrofitBuilder(
     Retrofit.Builder()
         .baseUrl(BuildConfig.BASE_URL)
         .client(client)
+        .addConverterFactory(SalarsConverterFactory.create())
         .addConverterFactory(gsonConverterFactory)
         .build()
 

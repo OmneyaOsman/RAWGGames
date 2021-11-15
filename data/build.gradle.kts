@@ -26,12 +26,11 @@ dependencies {
     implementation(Dependencies.PAGING_RUNTIME)
     room()
     implementation(Dependencies.DATA_STORE)
-
     implementation(TestDependencies.junit)
     androidTestImplementation(TestDependencies.runner)
     androidTestImplementation(TestDependencies.rules)
     androidTestImplementation(TestDependencies.core)
-    androidTestImplementation (TestDependencies.TEST_KOTLINX_COROUTINES){
+    androidTestImplementation(TestDependencies.TEST_KOTLINX_COROUTINES) {
         exclude(group = "org.jetbrains.kotlinx", module = "kotlinx-coroutines-debug")
     }
 }
