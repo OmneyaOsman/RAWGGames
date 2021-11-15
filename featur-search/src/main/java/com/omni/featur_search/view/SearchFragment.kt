@@ -42,17 +42,13 @@ class SearchFragment : Fragment() {
         }
     }
 
+
     private fun configureSearchView() {
         with(_binding.searchView) {
             val v: View? =
                 findViewById(R.id.search_plate)
             v?.setBackgroundColor(resources.getColor(android.R.color.transparent))
 
-//            val possibleExistingQuery = viewModel.getCurrentQuery()
-//            if (possibleExistingQuery != null && !possibleExistingQuery.isEmpty()) {
-//                this.setQuery(possibleExistingQuery, false)
-//                this.clearFocus()
-//            }
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     return true
@@ -64,24 +60,6 @@ class SearchFragment : Fragment() {
                     return true
                 }
             })
-//            setOnClickListener {
-//                onActionViewExpanded()
-//            }
-            setOnQueryTextFocusChangeListener { v, hasFocus ->
-//                val inputMethodManager =
-//                    requireNotNull(activity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//
-//                if (hasFocus) {
-//                    inputMethodManager.toggleSoftInput(
-//                        InputMethodManager.SHOW_FORCED,
-//                        InputMethodManager.HIDE_IMPLICIT_ONLY
-//                    )
-//                } else
-//                    inputMethodManager.hideSoftInputFromWindow(
-//                        requireNotNull(activity).currentFocus?.windowToken,
-//                        0
-//                    )
-            }
         }
 
     }
