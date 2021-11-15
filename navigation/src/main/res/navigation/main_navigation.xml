@@ -28,7 +28,13 @@
             android:id="@+id/action_gamesListFragment_to_generesFragment"
             app:destination="@id/generesFragment"
             app:popUpTo="@id/gamesListFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_gamesListFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/fall_down_item"
+            app:popUpTo="@id/gamesListFragment"
+            />
     </fragment>
 
 
@@ -36,11 +42,19 @@
         android:id="@+id/generesFragment"
         android:name="com.omni.feature_favorite_genere.view.GenresFragment"
         android:label="Generes">
-        <action
-            android:id="@+id/action_generesFragment_to_gamesListFragment"
-            app:destination="@id/gamesListFragment"
-            app:popUpTo="@id/generesFragment"
-            app:popUpToInclusive="true" />
+
     </fragment>
 
+    <fragment
+        android:id="@+id/searchFragment"
+        android:label="Search"
+        android:name="com.omni.featur_search.view.SearchFragment">
+
+    </fragment>
+
+    <action
+        android:id="@+id/action_generesFragment_to_gamesListFragment"
+        app:destination="@id/gamesListFragment"
+        app:popUpTo="@id/generesFragment"
+        app:popUpToInclusive="true" />
 </navigation>

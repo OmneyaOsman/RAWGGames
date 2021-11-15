@@ -2,11 +2,9 @@ package com.omni.domain.di
 
 import com.omni.domain.repository.GenerePreferencesSource
 import com.omni.domain.repository.GeneresRepository
+import com.omni.domain.repository.LocalDatabaseRepository
 import com.omni.domain.repository.RAWGGamesRepository
-import com.omni.domain.usecases.GetFavoriteGenereUseCase
-import com.omni.domain.usecases.GetGamesUseCase
-import com.omni.domain.usecases.GetGeneresUseCase
-import com.omni.domain.usecases.SetFavoriteGenereUseCase
+import com.omni.domain.usecases.*
 import org.koin.dsl.module
 
 val domainModule = module {
@@ -14,6 +12,7 @@ val domainModule = module {
     single { provideGetGeneresUseCase(get()) }
     single { provideSetFavoriteGenereUseCase(get()) }
     single { provideGetFavoriteGenereUseCase(get()) }
+    single { provideSearchUseCase(get()) }
 }
 
 fun provideGamesListUseCase(repository: RAWGGamesRepository): GetGamesUseCase =
@@ -27,4 +26,7 @@ fun provideSetFavoriteGenereUseCase(repository: GenerePreferencesSource): SetFav
 
 fun provideGetFavoriteGenereUseCase(repository: GenerePreferencesSource): GetFavoriteGenereUseCase =
     GetFavoriteGenereUseCase(repository)
+
+fun provideSearchUseCase(repository: LocalDatabaseRepository): SearchUseCase =
+    SearchUseCase(repository)
 

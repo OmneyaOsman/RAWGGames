@@ -134,7 +134,6 @@ fun DependencyHandler.lifecycle() {
     implementation(Dependencies.ANDROID_LIFECYCLE_RUNTIME)
     implementation(Dependencies.ANDROID_LIFECYCLE_EX)
     implementation(Dependencies.ANDROID_LIFECYCLE_VIEWMODEL)
-    implementation(Dependencies.ANDROID_LIFECYCLE_LIVEDATA)
 }
 
 fun DependencyHandler.retrofit() {

@@ -5,5 +5,12 @@
         android:id="@+id/edit_genere"
         android:enabled="true"
         android:title="@string/edit_genere"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_search"
+        android:enabled="true"
+        android:title="@string/search"
+        android:icon="@drawable/ic_search_24"
         app:showAsAction="ifRoom" />
 </menu>

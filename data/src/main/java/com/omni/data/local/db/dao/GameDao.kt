@@ -10,13 +10,16 @@ import com.omni.data.model.GameModel
 @Dao
 interface GameDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll( games: List<GameModel>)
+    suspend fun insertAll(games: List<GameModel>)
 
     @Query("SELECT * FROM game")
     fun getGamesPagingList(): PagingSource<Int, GameModel>
 
     @Query("SELECT * FROM game")
     suspend fun getGames(): List<GameModel>
+
+    @Query("SELECT * FROM game WHERE name LIKE :query || '%'")
+    suspend fun searchGames(query: String): List<GameModel>
 
     @Query("DELETE FROM game")
     suspend fun deleteGames()

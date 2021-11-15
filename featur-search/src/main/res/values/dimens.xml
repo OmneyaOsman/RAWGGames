@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_more_larger">22sp</dimen>
+    <dimen name="font_large">18sp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="search_icon_size">40dp</dimen>
+    <dimen name="search_view_height">37dp</dimen>
+    <dimen name="margin_22">22dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="spacing_large">20dp</dimen>
+    <dimen name="margin_2">2dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+</resources>

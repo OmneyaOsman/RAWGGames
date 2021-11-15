@@ -36,9 +36,19 @@ class MainActivity : AppCompatActivity() {
                 R.id.splashFragment -> {
                     binding.appbarLayout.visibility = View.GONE
                 }
-                R.id.gamesListFragment, R.id.generesFragment -> {
+                R.id.gamesListFragment -> {
                     binding.toolbar.navigationIcon = null
                     binding.appbarLayout.visibility = View.VISIBLE
+                    binding.toolbar.menu.findItem(R.id.edit_genere).isVisible = true
+                    binding.toolbar.menu.findItem(R.id.action_search).isVisible = true
+
+                }
+                R.id.generesFragment, R.id.searchFragment -> {
+                    if (destination.id == R.id.generesFragment)
+                        binding.toolbar.navigationIcon = null
+                    binding.appbarLayout.visibility = View.VISIBLE
+                    binding.toolbar.menu.findItem(R.id.edit_genere).isVisible = false
+                    binding.toolbar.menu.findItem(R.id.action_search).isVisible = false
                 }
                 else -> {
                     binding.appbarLayout.visibility = View.VISIBLE
@@ -62,6 +72,14 @@ class MainActivity : AppCompatActivity() {
             R.id.edit_genere -> {
                 try {
                     navController.navigate(R.id.action_gamesListFragment_to_generesFragment)
+                } catch (e: IllegalArgumentException) {
+                    Timber.d(e)
+                }
+                true
+            }
+            R.id.action_search -> {
+                try {
+                    navController.navigate(R.id.action_gamesListFragment_to_searchFragment)
                 } catch (e: IllegalArgumentException) {
                     Timber.d(e)
                 }
