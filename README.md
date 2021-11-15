@@ -6,14 +6,12 @@
 - [Demo](#demo)
 - [Introduction](#introduction)
 - [Modules](#modules)
-- [Testing](#testing)
-- [Libraries Used](#libraries_used)
+- [libraries_used](#libraries_used)
 - [License](#license)
 
 ## Demo
 <p align="center">
-  <img src="art/SpaceX-Dark.gif"  width="49%">
-  <img src="art/SpaceX-Light.gif"  width="49%">
+  <img src="art/demo.gif"  width="49%">
 </p>
 
 ## Introduction
@@ -38,12 +36,8 @@ And one extra module:
 * **core** - Base classes module (factories, events, etc.) that **cannot access any other module**
 
 
-## Testing
 
-
-
-
-## Libraries Used
+## libraries_used
 * [Coroutines][0] Library support for Kotlin coroutines.
 * [Flows][1] for asynchronous data streams.
 * [LiveData][2] for reactive style programming (from VM to UI).
@@ -74,9 +68,9 @@ And one extra module:
 
 
 ## License
-    Copyright 2021 Fernando Prieto Moyano
+    Copyright 2021 Omneya Osman
 
-    Licensed under the Apache License, Version 2.0 (the "License");
+    Licensed under the Apache License, Version 1.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
 
