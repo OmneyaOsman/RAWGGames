@@ -8,6 +8,7 @@ import com.omni.data.di.networkModule
 import com.omni.domain.di.domainModule
 import com.omni.feature_favorite_genere.di.favoriteGenereFeatureModule
 import com.omni.feature_games_list.di.gamesListFeatureModule
+import com.omni.feature_splash.di.splashFeatureModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
@@ -42,7 +43,8 @@ class RAWGamesApp : Application() {
                     generesRepositoryModule,
                     domainModule,
                     gamesListFeatureModule,
-                    favoriteGenereFeatureModule
+                    favoriteGenereFeatureModule,
+                    splashFeatureModule,
                 )
             )
         }

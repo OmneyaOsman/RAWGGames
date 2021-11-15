@@ -6,8 +6,7 @@ object Versions {
     const val MATERIAL_ANDROID = "1.4.0"
 
     const val SWIPE_REFRESH_LAYOUT = "1.1.0"
-    const val VIEWPAGER_2 = "1.0.0"
-    const val SWIPE_TO_REVEAL = "1.4.1"
+    const val LOTTI = "4.2.1"
     const val COROUTINES_ANDROID = "1.5.2"
     const val NAVIGATION = "2.3.5"
     const val KOIN = "3.1.2"
