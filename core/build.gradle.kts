@@ -6,4 +6,5 @@ plugins {
 dependencies {
     implementation(Dependencies.RETROFIT)
     implementation(Dependencies.GLIDE)
+    implementation(Dependencies.GSON)
 }

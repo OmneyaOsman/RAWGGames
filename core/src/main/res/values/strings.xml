@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="general_error_network">Please check your network</string>
+    <string name="general_error_server">Server Error</string>
+    <string name="general_server_data_null">Missing required data</string>
+</resources>
