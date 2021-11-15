@@ -36,9 +36,16 @@ class MainActivity : AppCompatActivity() {
                 R.id.splashFragment -> {
                     binding.appbarLayout.visibility = View.GONE
                 }
-                R.id.gamesListFragment, R.id.generesFragment -> {
+                R.id.gamesListFragment -> {
                     binding.toolbar.navigationIcon = null
                     binding.appbarLayout.visibility = View.VISIBLE
+                    binding.toolbar.menu.findItem(R.id.edit_genere).isVisible = true
+
+                }
+                R.id.generesFragment -> {
+                    binding.toolbar.navigationIcon = null
+                    binding.appbarLayout.visibility = View.VISIBLE
+                    binding.toolbar.menu.findItem(R.id.edit_genere).isVisible = false
                 }
                 else -> {
                     binding.appbarLayout.visibility = View.VISIBLE
