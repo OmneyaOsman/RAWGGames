@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RAWGAMES.SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <!--        <item name="closeIcon">@null</item>-->
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="background">@drawable/gray_strok_border</item>
+    </style>
+
+    <dimen name="font_normal">14sp</dimen>
+</resources>

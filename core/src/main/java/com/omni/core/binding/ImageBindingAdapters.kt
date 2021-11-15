@@ -22,7 +22,7 @@ fun ImageView.bindImageUrl(imgUrl: String?) {
                 CenterCrop(),
                 RoundedCorners(resources.getDimension(R.dimen.corner_radius_5).toInt())
             )
-            .placeholder(R.drawable.loading_animation)
+//            .placeholder(R.drawable.loading_animation)
             .error(R.drawable.ic_broken_image)
             .transition(DrawableTransitionOptions.withCrossFade()).into(this)
     }

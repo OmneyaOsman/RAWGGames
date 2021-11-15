@@ -14,8 +14,8 @@ object Dependencies {
         "com.google.android.material:material:${Versions.MATERIAL_ANDROID}"
     const val SWIPE_REFRESH_LAYOUT =
         "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.SWIPE_REFRESH_LAYOUT}"
-    const val SWIPE_TO_REVEAL =
-        "com.chauthai.swipereveallayout:swipe-reveal-layout:${Versions.SWIPE_TO_REVEAL}"
+    const val LOTTI =
+        "com.airbnb.android:lottie:${Versions.LOTTI}"
 
     const val KOIN_ANDROID = "io.insert-koin:koin-android:${Versions.KOIN}"
 
@@ -62,6 +62,9 @@ object Dependencies {
     const val ROOM_PAGING = "androidx.room:room-paging:${Versions.ROOM}"
     const val ROOM_TESTING = "androidx.room:room-testing:${Versions.ROOM}"
     //endregion
+
+    const val DATA_STORE = "androidx.datastore:datastore-preferences:${Androidx.DATA_STORE}"
+
 }
 
 object BuildDependencies {
@@ -131,7 +134,6 @@ fun DependencyHandler.lifecycle() {
     implementation(Dependencies.ANDROID_LIFECYCLE_RUNTIME)
     implementation(Dependencies.ANDROID_LIFECYCLE_EX)
     implementation(Dependencies.ANDROID_LIFECYCLE_VIEWMODEL)
-    implementation(Dependencies.ANDROID_LIFECYCLE_LIVEDATA)
 }
 
 fun DependencyHandler.retrofit() {

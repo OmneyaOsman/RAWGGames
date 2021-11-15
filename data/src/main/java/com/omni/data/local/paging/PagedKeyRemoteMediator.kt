@@ -11,13 +11,14 @@ import com.omni.data.model.GameRemoteKeysModel
 import com.omni.data.model.GamesResponseModel
 import com.omni.data.remote.api.GamesAPI
 import retrofit2.HttpException
+import timber.log.Timber
 import java.io.IOException
 
 @OptIn(ExperimentalPagingApi::class)
 class PagedKeyRemoteMediator(
     private val db: RawgGamesDatabase,
     private val gamesAPI: GamesAPI,
-    private val gener: String = "4" //todo get gener from datastore
+    private val genere: String
 ) : RemoteMediator<Int, GameModel>() {
 
     private val gamesDao = db.gamesDao()
@@ -58,7 +59,7 @@ class PagedKeyRemoteMediator(
             }
 
             val data: GamesResponseModel = gamesAPI.getGamesList(
-                geners = gener,
+                geners = genere,
                 nextPage = loadKey,
                 limit = when (loadType) {
                     LoadType.REFRESH -> state.config.initialLoadSize
@@ -75,7 +76,14 @@ class PagedKeyRemoteMediator(
                     remoteKeyDao.delete()
                 }
 
-                remoteKeyDao.insert(GameRemoteKeysModel(gener, data.next))
+                val nextPage:String? = data.next?.let {
+                    it.substringAfterLast("&page=")?.let {
+                        it.substringBefore("&")
+                    }
+
+                }
+                Timber.d("nextPage $nextPage")
+                remoteKeyDao.insert(GameRemoteKeysModel(genere, nextPage))
                 gamesDao.insertAll(items)
             }
 

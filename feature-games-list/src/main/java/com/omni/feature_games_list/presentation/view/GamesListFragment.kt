@@ -16,6 +16,7 @@ import com.omni.feature_games_list.presentation.viewmodel.GamesListViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.net.UnknownHostException
@@ -46,14 +47,15 @@ class GamesListFragment : Fragment() {
         initGamesListRecyclerView()
         initializeSwipeToRefresh()
         lifecycleScope.launchWhenStarted {
-            viewModel.getGames().collect {
-                Timber.d("QuestionsResponse", "collect")
-
-                if (binding.srLayout.isRefreshing)
-                    binding.srLayout.isRefreshing = false
-                adapter.submitData(it)
+            viewModel.genereState.collect { genere ->
+                viewModel.getGames(genere).collect {
+                    if (binding.srLayout.isRefreshing)
+                        binding.srLayout.isRefreshing = false
+                    adapter.submitData(it)
+                }
             }
         }
+
 
         observeViewModel()
     }
@@ -92,7 +94,7 @@ class GamesListFragment : Fragment() {
                         if (it.error is UnknownHostException)
                             Toast.makeText(
                                 context,
-                                "general_error_network",
+                                "Please check your Network ",
                                 Toast.LENGTH_SHORT
                             ).show()
                         else
