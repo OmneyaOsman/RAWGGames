@@ -9,7 +9,6 @@ import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.*
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 
 class RAWGGamesAndroidPlugin : Plugin<Project> {
@@ -23,9 +22,9 @@ class RAWGGamesAndroidPlugin : Plugin<Project> {
         project.afterEvaluate {
             with(project) {
                 tasks {
-                    withType<KotlinCompile> {
+                    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
                         with(kotlinOptions) {
-                            jvmTarget = JavaVersion.VERSION_11.toString()
+                            jvmTarget = JavaVersion.VERSION_17.toString()
                             freeCompilerArgs = listOf(
                                 "-Xallow-result-return-type",
                                 "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
@@ -42,16 +41,19 @@ class RAWGGamesAndroidPlugin : Plugin<Project> {
 
 private fun Project.configureAndroid() = this.extensions.getByType<BaseExtension>().run {
     compileSdkVersion(AndroidSettings.COMPILE_SDK)
+    namespace = "com.omni.rawggames"
 
     defaultConfig {
         versionCode = AndroidSettings.APP_VERSION_CODE
         versionName = AndroidSettings.APP_VERSION_NAME
         setProperty("archivesBaseName", "${parent?.name}-v${versionName}(${versionCode})")
 
-        minSdkPreview = AndroidSettings.MIN_ANDROID_SDK.toString()
+        minSdk = AndroidSettings.MIN_ANDROID_SDK
         targetSdk = AndroidSettings.TARGET_ANDROID_SDK
 
         testInstrumentationRunner = AndroidSettings.testInstrumentationRunner
+
+//        applicationId = "com.omni.newapp"
     }
 
     testOptions {
@@ -60,8 +62,8 @@ private fun Project.configureAndroid() = this.extensions.getByType<BaseExtension
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     lintOptions {
