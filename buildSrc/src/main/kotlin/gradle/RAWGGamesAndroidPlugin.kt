@@ -1,6 +1,7 @@
 package gradle
 
 
+import com.android.build.api.dsl.Lint
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
@@ -27,8 +28,6 @@ class RAWGGamesAndroidPlugin : Plugin<Project> {
                             jvmTarget = JavaVersion.VERSION_17.toString()
                             freeCompilerArgs = listOf(
                                 "-Xallow-result-return-type",
-                                "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
-                                "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
                                 "-Xopt-in=kotlin.time.ExperimentalTime"
                             )
                         }
@@ -52,8 +51,6 @@ private fun Project.configureAndroid() = this.extensions.getByType<BaseExtension
         targetSdk = AndroidSettings.TARGET_ANDROID_SDK
 
         testInstrumentationRunner = AndroidSettings.testInstrumentationRunner
-
-//        applicationId = "com.omni.newapp"
     }
 
     testOptions {
