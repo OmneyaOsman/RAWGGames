@@ -5,7 +5,7 @@ object Versions {
     const val CRASHLYTICS = "2.10.1" //undo
     const val MATERIAL_ANDROID = "1.9.0"
 
-    const val SWIPE_REFRESH_LAYOUT = "1.1.0" // undo
+    const val SWIPE_REFRESH_LAYOUT = "1.1.0"
     const val LOTTI = "6.0.1"
     const val COROUTINES_ANDROID = "1.7.2"
     const val NAVIGATION = "2.6.0"
@@ -33,9 +33,9 @@ object Versions {
 }
 
 object AndroidSettings {
-    const val COMPILE_SDK = 31
-    const val MIN_ANDROID_SDK = 23
-    const val TARGET_ANDROID_SDK = 30
+    const val COMPILE_SDK = 33
+    const val MIN_ANDROID_SDK = 24
+    const val TARGET_ANDROID_SDK = 33
     const val APP_VERSION_NAME = "1.0"
     const val APP_VERSION_CODE = 2
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -54,7 +54,7 @@ object Androidx {
 
 
 object BuildVersionsDependencies {
-    const val ANDROID_GRADLE = "7.0.3"
+    const val ANDROID_GRADLE = "8.0.2"
     const val GOOGLE_GRADLE = "4.3.15"
     const val DETEKT = "1.9.1"
     const val KTLINT = "10.2.0"
