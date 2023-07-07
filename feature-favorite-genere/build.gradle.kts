@@ -3,6 +3,9 @@ plugins {
     id("rawg-games_android_base-plugin")
     id("kotlin-kapt")
 }
+android{
+    namespace="com.omni.feature_favorite_genere"
+}
 dependencies {
     appCompat()
     implementation(project(":core"))
