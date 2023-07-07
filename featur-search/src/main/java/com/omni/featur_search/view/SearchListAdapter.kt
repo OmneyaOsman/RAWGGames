@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.omni.domain.entities.GameEntity
-import com.omni.featur_search.databinding.ListItemSearchBinding
+import com.omni.feature_search.databinding.ListItemSearchBinding
 
 class SearchListAdapter(val onClick: (model: GameEntity) -> Unit) :
     ListAdapter<GameEntity, SearchListAdapter.GeneresViewHolder>(Generes_COMPARATOR) {

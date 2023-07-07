@@ -33,18 +33,18 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.splashFragment -> {
+                com.omni.navigation.R.id.splashFragment -> {
                     binding.appbarLayout.visibility = View.GONE
                 }
-                R.id.gamesListFragment -> {
+                com.omni.navigation.R.id.gamesListFragment -> {
                     binding.toolbar.navigationIcon = null
                     binding.appbarLayout.visibility = View.VISIBLE
                     binding.toolbar.menu.findItem(R.id.edit_genere).isVisible = true
                     binding.toolbar.menu.findItem(R.id.action_search).isVisible = true
 
                 }
-                R.id.generesFragment, R.id.searchFragment -> {
-                    if (destination.id == R.id.generesFragment)
+                com.omni.navigation.R.id.generesFragment, com.omni.navigation.R.id.searchFragment -> {
+                    if (destination.id == com.omni.navigation.R.id.generesFragment)
                         binding.toolbar.navigationIcon = null
                     binding.appbarLayout.visibility = View.VISIBLE
                     binding.toolbar.menu.findItem(R.id.edit_genere).isVisible = false
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.edit_genere -> {
                 try {
-                    navController.navigate(R.id.action_gamesListFragment_to_generesFragment)
+                    navController.navigate(com.omni.navigation.R.id.action_gamesListFragment_to_generesFragment)
                 } catch (e: IllegalArgumentException) {
                     Timber.d(e)
                 }
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.action_search -> {
                 try {
-                    navController.navigate(R.id.action_gamesListFragment_to_searchFragment)
+                    navController.navigate(com.omni.navigation.R.id.action_gamesListFragment_to_searchFragment)
                 } catch (e: IllegalArgumentException) {
                     Timber.d(e)
                 }

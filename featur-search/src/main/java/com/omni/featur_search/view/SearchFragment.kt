@@ -1,17 +1,14 @@
 package com.omni.featur_search.view
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.omni.featur_search.R
-import com.omni.featur_search.databinding.FragmentSearchBinding
 import com.omni.featur_search.viewmodel.SearchViewModel
+import com.omni.feature_search.databinding.FragmentSearchBinding
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -46,7 +43,7 @@ class SearchFragment : Fragment() {
     private fun configureSearchView() {
         with(_binding.searchView) {
             val v: View? =
-                findViewById(R.id.search_plate)
+                findViewById(androidx.appcompat.R.id.search_plate)
             v?.setBackgroundColor(resources.getColor(android.R.color.transparent))
 
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {

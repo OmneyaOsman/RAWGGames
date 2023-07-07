@@ -4,14 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.omni.feature_favorite_genere.R
+import com.omni.navigation.R
 import com.omni.feature_favorite_genere.databinding.FragmentGeneresBinding
 import com.omni.feature_favorite_genere.viewmodel.GeneresViewModel
-import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
