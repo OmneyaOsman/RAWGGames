@@ -3,6 +3,9 @@ plugins {
     id("kotlin-kapt")
     id("rawg-games_android_base-plugin")
 }
+android{
+    namespace="com.omni.feature_games_list"
+}
 dependencies {
     implementation(project(":domain"))
     implementation(project(":core"))

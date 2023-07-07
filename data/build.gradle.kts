@@ -1,21 +1,41 @@
+import com.android.build.api.variant.BuildConfigField
 plugins {
     id("com.android.library")
     id("kotlin-kapt")
     id("rawg-games_android_base-plugin")
 }
 android {
-    defaultConfig {
-
-        buildConfigField(
-            "String",
-            "BASE_URL",
-            project.properties["BASE_URL"] as String
-        )
-
-        buildConfigField(
-            "String",
-            "API_KEY",
-            project.properties["API_KEY"] as String
+    namespace = "com.omni.data"
+    buildFeatures {
+            buildConfig = true
+    }
+}
+//android {
+//    defaultConfig {
+//
+//        buildConfigField(
+//            "String",
+//            "BASE_URL",
+//            project.properties["BASE_URL"] as String
+//        )
+//
+//        buildConfigField(
+//            "String",
+//            "API_KEY",
+//            project.properties["API_KEY"] as String
+//        )
+//    }
+//}
+androidComponents {
+    onVariants {
+        it.buildConfigFields.put(
+            "BASE_URL", BuildConfigField(
+                "String", "\"" + project.properties["BASE_URL"] as String + "\"", "BASE_URL"
+            ) )
+        it.buildConfigFields.put(
+            "API_KEY", BuildConfigField(
+                "String", "\"" + project.properties["API_KEY"] as String + "\"", "API_KEY"
+            )
         )
     }
 }

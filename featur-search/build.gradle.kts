@@ -2,6 +2,9 @@ plugins {
     id("com.android.library")
     id("rawg-games_android_base-plugin")
 }
+android{
+    namespace="com.omni.feature_search"
+}
 dependencies {
     implementation(project(":core"))
     implementation(project(":domain"))
